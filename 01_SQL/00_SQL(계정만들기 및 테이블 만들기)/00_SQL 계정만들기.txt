@@ -1,0 +1,11 @@
+관리자계정으로 시스템 만들기
+
+NAME - system_관리자계정
+사용자 이름 - sys as sysdba
+비밀번호 - oracle
+
+학습용계정 시스템 만들기
+
+NAME - server_학습용
+사용자 이름 - c##server
+비밀번호 - oracle | server

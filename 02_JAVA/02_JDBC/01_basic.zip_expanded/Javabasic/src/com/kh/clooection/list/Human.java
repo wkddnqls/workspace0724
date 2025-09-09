@@ -1,0 +1,45 @@
+package com.kh.clooection.list;
+
+public class Human {
+   private String name;
+   private int age;
+  
+   
+   public Human(String name, int age) {
+	super();
+	this.name = name;
+	this.age = age;
+   }
+   public Human() {
+	super();
+   }
+   public String getName() {
+	return name;
+   }
+   public void setName(String name) {
+	this.name = name;
+   }
+   public int getAge() {
+	return age;
+   }
+   public void setAge(int age) {
+	this.age = age;
+   }
+   @Override
+   public String toString() {
+	return "Human [name=" + name + ", age=" + age + "]  /n" ;
+   }
+   @Override
+   public boolean equals(Object obj) {
+	  
+	   if(obj instanceof Human) {
+		   Human h = (Human)obj;
+		   return this.name.equals(h.getName()) && this.age ==h.getAge();
+	   }
+	
+	   return false;
+   }
+   
+   
+   
+}
