@@ -1,0 +1,29 @@
+body {
+
+    min-height: 100vh;
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 400;
+    background: linear-gradient(120deg, #E9E3DF, #9ECAD6);
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+button {
+    margin: 5px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#output {
+    margin-top: 20px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    min-height: 50px;
+}

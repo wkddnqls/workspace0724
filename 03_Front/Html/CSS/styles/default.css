@@ -1,0 +1,161 @@
+/*css영역*/
+
+/*1. 속성 선택자*/
+/*div 요소중에서 name 속성 값에 name1 이 포함되어있는 요소 */
+div[name~=name1]{
+    background: yellow;
+}
+
+/*div요소 중에서 name 속성값이 name1과 일치하는 요소*/
+div[name=name1]{
+    background: blue;
+}
+
+
+
+
+/*div 요소 중 class 속성값이 class로 시작하는 요소 (-으로 구분)*/
+div[class |= class]{
+    background: gray;
+}
+
+/*div요소 중 name 속성값이 na로 시작하는 요소 */
+
+div[name^=na]{
+    background: wheat;
+}
+
+/*div요소 중 class속성 값이 ss로 끝나는 요소 */
+
+div[class $= ss]{
+    background : yellow;
+    color : red ; 
+}
+
+/*문제 : class 속성값이 div-class인 요소들 중에서
+        name 속성 값에 name3가 포함된 요소 배경을 pink로 변경   
+  */
+.div-class[name~=name3]{
+    background : pink;
+}
+
+
+div[class=div-class][name~=name3]
+{
+    background: pink;
+}
+
+/*
+ 아이디가 test1인 요소들의 자손들 중 h4만 선택
+*/
+
+#test1>h4 {
+    background: black;
+}
+
+#test1 {
+    color :rgb(17, 0, 255);
+}
+
+/*
+#test1>ul>li{
+    background: blue;
+}
+*/
+
+/* a b : a요소의 후손들 중에서 b요소 전부선택*/
+#test1 li{
+    background: blue;
+}
+
+
+
+#test2+div{
+    background: red;
+}
+
+#test2+ul{
+    background: red;
+}
+/*앞에오는 선택자 바로 뒤에오는 요소가 아니기떄문에 적용 x*/
+
+#test2~ul{
+    background: red;
+}
+
+
+
+.area{
+    background: greenyellow;
+    width: 100px;
+     height: 100px;
+     cursor: pointer;
+
+}
+
+#active-test:active{
+    background: red;
+    color: rebeccapurple;
+}
+
+
+
+#hover-test:hover{
+    background: teal;
+    color: aquamarine;
+    scale: 0.8;
+}
+
+button{
+    outline: none;
+    background: gainsboro;
+    cursor : pointer ;
+    color : rgb(136, 51, 153);
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+button:hover{
+    scale: 0.9;
+    opacity: 0.9;
+}
+
+input[type=checkbox]:checked{
+    width: 20px;
+    height: 20px;
+}
+
+
+input[type=checkbox]:checked+label{
+    font-size: 40px;
+}
+
+input[name^=user]:focus{
+    background: pink;
+}
+
+button:enabled{
+    font-size : 20px;
+    background: bisque;
+}
+
+button:disabled{
+  
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

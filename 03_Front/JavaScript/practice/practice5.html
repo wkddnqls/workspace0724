@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .area1 {
+  display: flex;        
+  align-items: center;  
+  gap: 5px;           
+  margin-bottom: 5px;  
+}
+input {
+  width: 200px;         /* 입력창 너비 */
+}
+
+.area2{
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+}
+
+</style>
+<body >
+
+    <fieldset >
+        <legend>구직정보</legend>
+<ul>
+    <li class="area1">
+        <ul><li></li></ul>
+      <span>구매자 :</span>
+      <input type="text" id="구매자1" placeholder="구매자의 이름을 입력하세요">
+    </li>
+    
+    <li class="area1">
+        <ul><li></li></ul>
+      <span>상품명 :</span>
+      <input type="text" id="상품명" placeholder="구매 상품 명을 입력하세요">
+    </li>
+    <li class="area1">
+        <ul><li></li></ul>
+      <span> 가격 :</span>
+      <input type="text" id="가격" placeholder="구매가격을 입력하세요">
+    </li>
+    
+    <li class="area1">
+        <ul><li></li></ul>
+      <span>구매 수량 :</span>
+      <input style="width: 70px;" type="text" id="구매수량" placeholder="최소 10.">
+    </li>
+
+     <li class="area1">
+        <ul><li></li></ul>
+    <span>납품 등급 :</span>
+    <input type="range" id="grade" min="1" max="9" step="1" value="1">
+    <span id="gradeVal">1</span> <!-- 현재 값 표시 -->
+    </li>
+    
+    <li class="area1" style="align-items: flex-end;">
+        <ul><li></li></ul>
+      <span>기타사항 :</span>
+      <textarea style="width:300px; height:100px;"></textarea>
+    </li>
+  
+</ul>
+
+    </fieldset>
+
+    <button onclick="출력()" style="margin-top: 20px;"> 입력 값 출력하기 </button>
+    <div id="area" class="area2" style="margin-top: 20px;"></div>
+</body>
+
+<script>
+
+function 출력() {
+    
+    const 구매자 = document.getElementById('구매자1').value; 
+    const 상품명 = document.getElementById('상품명').value; 
+    const 가격 = document.getElementById('가격').value; 
+    const 구매수량 = document.getElementById('구매수량').value; 
+    const 납품등급 = document.getElementById('grade').value; 
+    const 기타사항 = document.querySelector('textarea').value;
+
+    // #area에 출력
+    document.getElementById('area').innerHTML =
+        `<strong>구매자:</strong> ${구매자} 님 <br>` +
+        `<strong>상품명:</strong> ${상품명} <br>` +
+        `<strong>가격:</strong> ${가격} 만원 <br>` +
+        `<strong>구매 수량:</strong> ${구매수량} 개 <br>` +
+        `<strong>납품 등급:</strong> ${납품등급} 등급 <br>` +
+        `<strong>기타사항:</strong> ${기타사항}`;
+}
+
+
+/*
+Element.children : 특정요소 내부에있는 자식요소(element)목록을 배열로 변환
+ex) children[i].value
+
+Element.childNodes : 특정요소 내부에잇는 모든 자식노드(태그,텍스트,주석,공백,,,)
+*/
+
+
+
+const gradeSlider = document.getElementById('grade');
+const gradeVal = document.getElementById('gradeVal');
+
+gradeSlider.addEventListener('input', 등급);
+
+function 등급(){
+    gradeVal.textContent = gradeSlider.value;
+}
+
+</script>
+
+
+</html>
