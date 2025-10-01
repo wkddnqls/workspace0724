@@ -92,7 +92,11 @@ body{
 
     <h1 align="center">Welcome KH World</h1>
     <div class="login-area">
-         <!-- 로그인 전-->
+    
+    
+    <c:choose>
+         <%-- 로그인 전 --%>
+         <c:when test="${empty sessionScope.loginMember}">
              <form action="${pageContext.request.contextPath}/login.me" method="post">
                 <table>
                     <tr>
@@ -123,16 +127,23 @@ body{
         		//단순한 페이지 요청도 servlet을 거처가도록 할 것(url에는 서버 요청을 위한 맵핑값이 나타나도록)
         	}
         </script>
+        </c:when>
+       
+        <c:otherwise>
               
         
-         <!-- 로그인 후-->
-          <!--<div class="logout-area">
-            <b>최지원님</b>의방문을 환영합니다.<br>
+         <%-- 로그인 후 --%>
+          <div class="logout-area">
+            <b>${loginMember.memberName} 님</b>의방문을 환영합니다.<br>
             <div>
                 <a href="">마이페이지</a>
-                <a href="">로그아웃</a>
+                <a href="${pasgeContext.repuest.contextPath}/logout.me">로그아웃</a>
             </div>
-          </div> -->
+          </div>
+          
+          </c:otherwise>
+          
+          </c:choose>
     </div>
    
     <nav class="main-nav">

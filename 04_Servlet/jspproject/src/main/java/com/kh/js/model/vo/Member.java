@@ -33,7 +33,7 @@ private Date enrollDate;
 private Date modifyDate;
 private String status;
 
-public static Member insertcreateMember(
+public static Member insertCreateMember(
 		String userId, String userPwd , String userName , String phone ,
 		String email , String address ,String interestAr)
 {

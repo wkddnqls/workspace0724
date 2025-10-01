@@ -4,11 +4,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 import static com.kh.jsp.common.JDBCTemplate.*;
 import com.kh.js.model.vo.Member;
 import com.kh.jsp.common.JDBCTemplate;
+
+
 
 	public class MemberDao {
 		private Properties prop = new Properties();
@@ -43,6 +46,7 @@ import com.kh.jsp.common.JDBCTemplate;
 				pstmt.setString(6, m.getAddress());
 				pstmt.setString(7, m.getInterest());
 				
+				
 				result = pstmt.executeUpdate();
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -52,4 +56,60 @@ import com.kh.jsp.common.JDBCTemplate;
 			
 			return result;
 		}
+	
+		public Member loginMember(String userId, String userPwd, Connection conn) {
+			//select -> Member조회 -> ResultSet(한개또는 0)
+			Member m = null;
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String sql = prop.getProperty("loginMember");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, userId);
+				pstmt.setString(2, userPwd);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					m = new Member(
+								rset.getInt("MEMBER_NO"),
+								rset.getString("MEMBER_ID"),
+								rset.getString("MEMBER_PWD"),
+								rset.getString("MEMBER_NAME"),
+								rset.getString("PHONE"),
+								rset.getString("EMAIL"),
+								rset.getString("ADDRESS"),
+								rset.getString("INTEREST"),
+								rset.getDate("ENROLL_DATE"),
+								rset.getDate("MODIFY_DATE"),
+								rset.getString("STATUS")
+							);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return m;
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}

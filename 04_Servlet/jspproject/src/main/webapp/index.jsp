@@ -17,7 +17,7 @@
    --%>
    
    
-   
+   <jsp:include page="/views/common/menubar.jsp" />
    
    
    

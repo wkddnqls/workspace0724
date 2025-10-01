@@ -6,78 +6,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-   <style>
+    <style>
+        .container{
+            padding: 58px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px; 
+        }
 
- .container{
-    padding: 72px 24px;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-   }
-   .container table tr{
-    height: 4px;
-   }
-   </style>
-   
+        .container table tr{
+            height: 52px;
+        }
+
+    </style>
+
 </head>
-
 <body>
-    <jsp:include page="/views/common/menubar.jsp"/>
-  <div class="container">
+    <jsp:include page="/views/common/menubar.jsp" />
 
-    <h2>회원가입</h2>
-    <form action="${pageContext.request.contextPath}/insert.me" method="post">
-        <table>
+    <div class="container">
+        <h2>회원가입</h2>
+        <form action="${pageContext.request.contextPath}/insert.me" method="post">
+            <table>
                 <tr>
-                    <td>아이디</td>
-                    <td><input type="text" name="userId" required class="form-control" placeholder="아이디를 입력하세요"></td>
-                    <td><button type="button" onclick="" class="btn">중복확인</button></td>
+                    <td><input type="text" class="form-control" name="userId" required placeholder="아이디 입력..."></td>
+                    <td><button type="button" class="btn btn-primary" onclick="">중복확인</button></td>
                 </tr>
                 <tr>
-                    <td>비밀번호</td>
-                    <td><input type="password" name="userPwd" required class="form-control" placeholder="비밀번호 입력"></td>
+                    <td><input type="password" class="form-control" name="userPwd" required placeholder="비밀번호 입력..."></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>비빌번호 확인</td>
-                    <td><input type="password" required class="form-control" placeholder="비밀번호 확인(입력)"></td>
+                    <td><input type="password" class="form-control" required placeholder="비밀번호 확인..."></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>이름</td>
-                    <td><input type="text" name="userName" required class="form-control" placeholder="이름 입력.."></td>
+                    <td><input type="text" class="form-control" name="userName" required placeholder="이름 입력..."></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>전화번호</td>
-                    <td><input type="text" name="phone" class="form-control" placeholder="전화번호 입력.."></td>
+                    <td><input type="text" class="form-control" name="phone" placeholder="전화번호 입력..."></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>이메일</td>
-                    <td><input type="text" name="email" class="form-control" placeholder="이메일 입력.." ></td>
+                    <td><input type="text" class="form-control" name="email" placeholder="이메일 입력..."></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>주소</td>
-                    <td><input type="text" name="address" class="form-control" placeholder="주소 입력.."></td>
+                    <td><input type="text" class="form-control" name="address" placeholder="주소 입력..."></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>관심분야</td>
                     <td colspan="2">
                         <label>
                             <input type="checkbox" name="interest" value="sports">
@@ -105,7 +87,7 @@
                             영화
                         </label>
                         <label>
-                            <input type="checkbox" name="interest" value="other">
+                            <input type="checkbox" name="interest" value="etc">
                             기타
                         </label>
                     </td>
@@ -114,26 +96,11 @@
 
             <br><br>
 
-            <div align = "center">
-                <input type="submit" value="회원가입" class="btn btn-secondary">
-                <input type="reset" value="다시입력" class="btn btn-secondary">
+            <div align="center">
+                <input type="submit" class="btn btn-primary" value="회원가입">
+                <input type="reset" class="btn btn-primary" value="다시입력">
             </div>
-    </form>
-  </div>
-    
+        </form>
+    </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
