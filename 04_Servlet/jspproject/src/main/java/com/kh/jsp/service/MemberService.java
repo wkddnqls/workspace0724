@@ -40,7 +40,7 @@ public Member UpdateMember(Member m) {
 	Member updateMember = null;
 	if(result > 0) {
 		commit(conn);
-		new MemberDao().selectMemberBYUserid(conn , m.getMemberId());
+		updateMember = new MemberDao().selectMemberBYUserid(conn , m.getMemberId());
 	} else {
 		rollback(conn);
 	}
@@ -60,7 +60,7 @@ public Member UpdatePwdMember(String memberId , String updatePwd) {
 	
 	if(result > 0) {
 		commit(conn);
-		new MemberDao().selectMemberBYUserid(conn , memberId);
+		updateMember= new MemberDao().selectMemberBYUserid(conn , memberId);
 	} else {
 		rollback(conn);
 	}
