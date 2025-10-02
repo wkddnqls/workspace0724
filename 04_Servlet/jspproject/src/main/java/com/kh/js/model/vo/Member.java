@@ -49,4 +49,30 @@ public static Member insertCreateMember(
 	return m;
 }
 
+public static Member UpdateMember(
+		String userId, String userName , String phone ,
+		String email , String address )
+{
+	Member Um = new Member();
+	Um.setMemberId(userId);
+	
+	Um.setMemberName(userName);
+	Um.setPhone(phone);
+	Um.setEmail(email);
+	Um.setAddress(address);
+	
+	
+	return Um;
+}
+
+public static Member UpdatePwdMember(
+		String userPwd )
+{
+	Member PUm = new Member();
+	PUm.setMemberPwd(userPwd);
+	
+	
+	return PUm;
+}
+
 }

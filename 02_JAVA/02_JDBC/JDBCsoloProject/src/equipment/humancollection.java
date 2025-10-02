@@ -1,11 +1,13 @@
 package equipment;
 
 public class humancollection {
+	
 	String humanName ;
 	double humanNum;
 	double humanPower ;
 	double humanDefensive;
 	String humanSpecslist;
+	
 	public humancollection(String humanName, int humanNum, int humanPower, int humanDefensive) {
 		super();
 		this.humanName = humanName;

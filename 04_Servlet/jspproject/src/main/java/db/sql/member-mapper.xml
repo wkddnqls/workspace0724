@@ -41,4 +41,44 @@
 	     AND MEMBER_PWD = ?
 	     AND STATUS = 'Y'
 	</entry>
+	
+		<entry key="updateMember">
+		UPDATE MEMBER
+			SET PHONE =?,
+				EMAIL = ?,
+				ADDRESS = ?,
+				INTEREST = ?,
+				MODIFY_DATE = SYDATE,			
+	   WHERE MEMBER_ID = ?
+	</entry>
+	
+	<entry key="selectMemberBYUserid">
+		SELECT MEMBER_NO,
+				MEMBER_ID,
+				MEMBER_PWD,
+				MEMBER_NAME,
+				PHONE,
+				EMAIL,
+				ADDRESS,
+				INTEREST,
+				ENROLL_DATE,
+				MODIFY_DATE,
+				STATUS
+		FROM MEMBER
+	   WHERE MEMBER_ID = ?
+	</entry>
+	
+		<entry key="updateMemberPwd">
+		UPDATE MEMBER
+			SET MEMBER_PWD = ?,
+				MODIFY_DATE = SYDATE			
+	   WHERE MEMBER_ID = ?
+	</entry>
+
+	<entry key="deletMember">
+		UPDATE MEMBER
+			SET STATUS = 'N',
+				MODIFY_DATE = SYDATE			
+	   WHERE MEMBER_ID = ?
+	</entry>
 </properties>

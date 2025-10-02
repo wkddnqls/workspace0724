@@ -21,8 +21,8 @@ public class common {
 			
 			conn = DriverManager.getConnection(
 		            "jdbc:oracle:thin:@localhost:1521:xe",
-		            "c##JDBC",
-		            "JDBC"
+		            "c##game",
+		            "game"
 		        );
 			conn.setAutoCommit(false);
 		} catch (ClassNotFoundException e) {

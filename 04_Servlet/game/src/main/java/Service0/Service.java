@@ -30,7 +30,7 @@ public class Service {
 	 private swordDao sd = new swordDao();
 	 private shieldDao SED = new shieldDao();
 	 private armorDao AM = new armorDao();
-private monsterDao MD = new monsterDao();
+    private monsterDao MD = new monsterDao();
 	private enforce00 ex = new enforce00();
    
 	
@@ -47,27 +47,37 @@ private monsterDao MD = new monsterDao();
 	}
 
 
-	public int insert(Object item) {
-	    Connection conn = common.go();
-	    int result = 0;
+	public int insert(String equipName, String equipType, String equipInitial, String equipUse) {
+        Connection conn = common.go();
+        int result = 0;
 
-	    if (item instanceof swordcollection) {
-	        result = sd.insertsword((swordcollection) item, conn);
-	    } else if (item instanceof shieldcollection) {
-	        result = SED.insertshield((shieldcollection) item, conn);
-	    } else if (item instanceof armorcollection) {
-	        result = AM.insertarmor((armorcollection) item, conn);
-	    }
+        switch (equipType) {
+            case "sword":
+                swordcollection sword = new swordcollection(equipName, equipInitial, equipUse);
+                result = sd.insertsword(sword, conn);
+                break;
 
-	    if (result > 0) {
-	        commit(conn);
-	    } else {
-	        rollback(conn);
-	    }
-	    close(conn);
+            case "shield":
+             //   shieldcollection shield = new shieldcollection(equipName, equipInitial, equipNum, equipUse);
+             //   result = SED.insertshield(shield, conn);
+                break;
 
-	    return result;
-	}
+            case "armor":
+              //  armorcollection armor = new armorcollection(equipName, equipInitial, equipNum, equipUse);
+             //   result = AM.insertarmor(armor, conn);
+                break;
+        }
+
+        if (result > 0) {
+            commit(conn);
+        } else {
+            rollback(conn);
+        }
+        close(conn);
+
+        return result;
+    }
+
 
 
 

@@ -136,8 +136,8 @@ body{
           <div class="logout-area">
             <b>${loginMember.memberName} 님</b>의방문을 환영합니다.<br>
             <div>
-                <a href="">마이페이지</a>
-                <a href="${pasgeContext.repuest.contextPath}/logout.me">로그아웃</a>
+                <a href="${pageContext.request.contextPath}/myPage.me">마이페이지</a>
+                <a href="${pageContext.request.contextPath}/logout.me">로그아웃</a>
             </div>
           </div>
           
@@ -148,9 +148,9 @@ body{
    
     <nav class="main-nav">
         <ul>
-            <li><a href="">HOME</a></li>
+            <li><a href="${pageContext.request.contextPath}">HOME</a></li>
             <li><a href="">공지사항</a></li>
-            <li><a href="">일반게시판</a></li>
+            <li><a href="${pageContext.request.contextPath}/list.bo">일반게시판</a></li>
             <li><a href="">사진게시판</a></li>
         </ul>
     </nav>

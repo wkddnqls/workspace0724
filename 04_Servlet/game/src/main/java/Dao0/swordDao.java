@@ -69,7 +69,7 @@ public class swordDao {
 		PreparedStatement pstmt = null;
 
 		//실행할 SQL (sql뒤에 ; 없어야함 !!)
-	    String sql = "INSERT INTO SWORD VALUES(?,0,?,SYSDATE,'N')";
+	    String sql = "INSERT INTO SWORD VALUES(?,1,?,SYSDATE,?)";
 
 	    try {
 			
@@ -77,8 +77,9 @@ public class swordDao {
 		    //아직 미완성 sql문으로 ?의 값을 전부 채워야함
 		    pstmt = conn.prepareStatement(sql);
 		    
-			pstmt.setString(1, s.getSwordName());
-			pstmt.setString(2, s.getSwordInitiasl());
+			pstmt.setString(1, s.getEquipName());
+			pstmt.setString(2, s.getEquipInitial());
+			pstmt.setString(3, s.getEquipUse());
 		
 			
 			result =pstmt.executeUpdate();

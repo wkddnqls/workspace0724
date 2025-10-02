@@ -34,12 +34,57 @@ public Member loginMember(String userId , String userPwd) {
 			
 }
 
+public Member UpdateMember(Member m) {
+	Connection conn = getConnection();
+	int result = new MemberDao().UpdateMember(m,conn);
+	Member updateMember = null;
+	if(result > 0) {
+		commit(conn);
+		new MemberDao().selectMemberBYUserid(conn , m.getMemberId());
+	} else {
+		rollback(conn);
+	}
+	
+	close(conn);
+	
+	return updateMember;
+			
+}
 
 
+public Member UpdatePwdMember(String memberId , String updatePwd) {
+	Connection conn = getConnection();
+	int result = new MemberDao().UpdatePwdMember(memberId,updatePwd,conn);
+	
+	Member updateMember = null;
+	
+	if(result > 0) {
+		commit(conn);
+		new MemberDao().selectMemberBYUserid(conn , memberId);
+	} else {
+		rollback(conn);
+	}
+	
+	close(conn);
+	
+	return updateMember;
+			
+}
 
-
-
-
+public int deleteMember(String memberId) {
+	Connection conn = getConnection();
+	int result = new MemberDao().deleteMember(memberId, conn);
+	
+	if(result > 0) {
+		commit(conn);
+		new MemberDao().selectMemberBYUserid(conn , memberId);
+	} else {
+		rollback(conn);
+	}
+	
+	close(conn);
+	return result;
+}
 
 
 
