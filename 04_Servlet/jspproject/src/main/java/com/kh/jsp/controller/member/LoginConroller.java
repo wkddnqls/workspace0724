@@ -45,7 +45,7 @@ public class LoginConroller extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", loginMember);
 			session.setAttribute("alertMsg", "로그인 성공");
-			
+			session.setAttribute("loginUserNo", loginMember.getMemberNo());
 			//request.getRequestDispatcher("/index.jsp").forward(request, response);
 			//url재요청 방식
 			//기존에 해당페이지를 응답하는 url이 존재한다면 굳이 해당 url을 유지하면서

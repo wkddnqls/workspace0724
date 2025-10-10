@@ -80,27 +80,31 @@
 
 	<div class="board-container">
 		<div class="board-card">
-			<h2>일반게시글 작성하기</h2>
+			<h2>일반 게시글 작성하기</h2>
 
-			<form action="" method="" >
+			<!-- 파일 업로드를 위해 enctype 꼭 추가 -->
+			<form action="${pageContext.request.contextPath}/insert.bo" method="post">
 				<table class="form-table">
 					<tr>
 						<th>카테고리</th>
 						<td>
-							<select name="category">						
-							</select>
+							<select name="categoryNo">
+                         <c:forEach var="c" items="${categoryList}">
+                        <option value="${c.categoryNo}">${c.categoryName}</option>
+                       </c:forEach>
+                   </select>
 						</td>
 					</tr>
 					<tr>
 						<th>제목</th>
 						<td>
-							<input type="text" name="title" required>
+							<input type="text" name="title" placeholder="제목을 입력하세요" required>
 						</td>
 					</tr>
 					<tr>
 						<th>내용</th>
 						<td>
-							<textarea name="content" rows="10"></textarea>
+							<textarea name="content" rows="10" placeholder="내용을 입력하세요" required></textarea>
 						</td>
 					</tr>
 					<tr>
